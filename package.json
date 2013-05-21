@@ -1,0 +1,31 @@
+{
+  "name": "stream-rpc",
+  "version": "0.0.0",
+  "description": "RPC over arbitrary streams for Node.js and a browser",
+  "main": "lib/index.js",
+  "dependencies": {
+    "uuid": "",
+    "through": ""
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.x",
+    "mocha": "",
+    "semver": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andreypopp/stream-rpc.git"
+  },
+  "homepage": "https://github.com/andreypopp/stream-rpc",
+  "keywords": [
+    "stream",
+    "streams",
+    "rpc"
+  ],
+  "author": {
+    "name": "Andrey Popp",
+    "email": "8mayday@gmail.com",
+    "url": "http://andreypopp.com"
+  },
+  "license": "MIT"
+}
