@@ -10,7 +10,8 @@
   "devDependencies": {
     "coffee-script": "~1.6.x",
     "mocha": "",
-    "semver": ""
+    "semver": "",
+    "stream-serializer": ""
   },
   "repository": {
     "type": "git",

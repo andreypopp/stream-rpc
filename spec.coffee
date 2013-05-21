@@ -1,11 +1,12 @@
-{ok, equal} = require 'assert'
+{ok, equal, deepEqual} = require 'assert'
 through = require 'through'
 rpc = require './src'
+serialize = require('stream-serializer')()
+net = require 'net'
 
 describe 'stream-rpc', ->
 
   describe 'echo server', ->
-
 
     it 'works', (done) ->
 
@@ -31,7 +32,7 @@ describe 'stream-rpc', ->
 
       client = rpc(name: 'client', timeout: 30)
       server = rpc name: 'server', handle: (request, done) ->
-        setTimeout (-> 
+        setTimeout (->
           done(null, request)
         ), 50
       client.pipe(server).pipe(client)
@@ -40,3 +41,18 @@ describe 'stream-rpc', ->
         ok err instanceof Error
         equal response, undefined
         done()
+
+
+  describe 'network case', ->
+
+    it 'works', ->
+      clientO = rpc()
+      client = serialize clientO
+      server = serialize rpc()
+      sockServer = net.createServer (sock) ->
+        server.pipe(sock).pipe(server)
+      sockServer.listen 12345, ->
+        client.pipe(net.connect(12345)).pipe(client)
+        clientO.call {hello: 'world'}, (err, response) ->
+          deepEqual {hello: 'world'}, response
+          sockServer.close()
