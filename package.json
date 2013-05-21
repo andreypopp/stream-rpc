@@ -1,6 +1,6 @@
 {
   "name": "stream-rpc",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "RPC over arbitrary streams for Node.js and a browser",
   "main": "lib/index.js",
   "dependencies": {
