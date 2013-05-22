@@ -54,5 +54,20 @@ describe 'stream-rpc', ->
       sockServer.listen 12345, ->
         client.pipe(net.connect(12345)).pipe(client)
         clientO.call {hello: 'world'}, (err, response) ->
-          deepEqual {hello: 'world'}, response
+          deepEqual response, {hello: 'world'}
+          sockServer.close()
+
+    it 'allows to serialize an error', ->
+      clientO = rpc()
+      client = serialize clientO
+      server = serialize rpc
+        handle: (request, done) ->
+          done(new Error('x'))
+      sockServer = net.createServer (sock) ->
+        server.pipe(sock).pipe(server)
+      sockServer.listen 12345, ->
+        client.pipe(net.connect(12345)).pipe(client)
+        clientO.call {hello: 'world'}, (err, response) ->
+          deepEqual err, new Error('x')
+          deepEqual response, undefined
           sockServer.close()
