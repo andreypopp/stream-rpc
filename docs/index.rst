@@ -66,7 +66,7 @@ JSON::
       });
     };
 
-Please note through_ library which use to create ``serialize`` and
+Please note through_ library which we use to create ``serialize`` and
 ``deserialize`` stream transformers.
 
 On a server you need to compose a stream pipeline on each connection::
@@ -111,6 +111,17 @@ Now on a client you use exactly the same libraries and exactly the same::
 
 Note that you would need to process client code with ``browserify`` before
 serving to a browser.
+
+Handling timeouts
+-----------------
+
+Library also provides a way to handle timeouts, just pass a ``timeout`` option
+in milliseconds to a client::
+
+    var client = rpc({timeout: 2000});
+
+If ``client`` waits more than 2 seconds then it will receive ``new
+Error('timeout')`` error.
 
 Development
 -----------

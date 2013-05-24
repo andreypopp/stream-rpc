@@ -28,7 +28,7 @@ docs::
 		-Agithub_repo='$(REPONAME)' \
 		./docs ./docs/build
 
-docs-deploy:
+docs-push::
 	rm -rf ./docs/build
 	$(MAKE) docs
 	touch ./docs/build/.nojekyll
