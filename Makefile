@@ -21,7 +21,7 @@ test:
 
 docs::
 	@sphinx-npm \
-		-E -a \
+		-C -E -a \
 		-Dhtml_theme_path=. \
 		-Dhtml_theme=noisy \
 		-Dmaster_doc=index \
