@@ -118,6 +118,9 @@ Development
 Development of the library takes place in the  GitHub `andreypopp/stream-rpc`_
 repository.
 
+Before submitting any pull requests please make sure with ``make test`` that all
+tests pass.
+
 .. _browserify: http://browserify.org
 .. _`websocket-stream`: https://github.com/maxogden/websocket-stream
 .. _through: https://github.com/dominictarr/through
