@@ -1,6 +1,7 @@
 BIN = ./node_modules/.bin
 SRC = $(wildcard src/*.coffee)
 LIB = $(SRC:src/%.coffee=lib/%.js)
+REPO = $(shell cat .git/config | grep url | xargs echo | sed -E 's/^url = //g')
 
 build: $(LIB)
 
@@ -23,6 +24,14 @@ docs::
 		-Dhtml_theme=noisy \
 		-Dmaster_doc=index \
 		./docs ./docs/build
+
+docs-deploy:
+	rm -rf ./docs/build
+	$(MAKE) docs
+	touch ./docs/build/.nojekyll
+	(cd ./docs/build;\
+		git init && git add . && git ci -m 'docs' &&\
+		git push -f $(REPO) master:gh-pages)
 
 release-patch: build test
 	@$(call release,patch)

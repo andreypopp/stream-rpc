@@ -1,5 +1,5 @@
-Streams-RPC
-===========
+Stream-RPC
+==========
 
 RPC calls over arbitrary streams in Node and a Browser
 
@@ -12,14 +12,14 @@ block which correlates request with corresponding response over streams.
 Getting started
 ---------------
 
-To get started, install ``streams-rpc`` package via ``npm``::
+To get started, install ``stream-rpc`` package via ``npm``::
 
-    % npm install streams-rpc
+    % npm install stream-rpc
 
-After that you will be able to use ``streams-rpc`` library in you code.  The
+After that you will be able to use ``stream-rpc`` library in you code.  The
 basic usage example is as follows::
 
-    var rpc = require('streams-rpc'),
+    var rpc = require('stream-rpc'),
         client = rpc(),
         server = rpc({
           handle: function(request, done) {
@@ -110,10 +110,10 @@ serving to a browser.
 Development
 -----------
 
-Development of the library takes place in the  GitHub `andreypopp/streams-rpc`_
+Development of the library takes place in the  GitHub `andreypopp/stream-rpc`_
 repository.
 
 .. _browserify: http://browserify.org
 .. _`websocket-stream`: https://github.com/maxogden/websocket-stream
 .. _through: https://github.com/dominictarr/through
-.. _`andreypopp/streams-rpc`: https://github.com/andreypopp/streams-rpc
+.. _`andreypopp/stream-rpc`: https://github.com/andreypopp/stream-rpc
