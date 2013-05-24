@@ -6,6 +6,11 @@ RPC calls over arbitrary streams in Node and a Browser
 This library provides a way to send a request and get a response on it over
 an arbitrary stream. It works both in Node and in a browser (via browserify_).
 
+This documentation is organized as follows:
+
+.. contents::
+   :local:
+
 Note that this is not a full-blown RPC solution but a just primitive building
 block which correlates request with corresponding response over streams.
 

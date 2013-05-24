@@ -20,7 +20,8 @@ test:
 
 docs::
 	@sphinx-npm \
-		-Dhtml_theme_path=./docs \
+		-E -a \
+		-Dhtml_theme_path=. \
 		-Dhtml_theme=noisy \
 		-Dmaster_doc=index \
 		./docs ./docs/build
@@ -32,6 +33,12 @@ docs-deploy:
 	(cd ./docs/build;\
 		git init && git add . && git ci -m 'docs' &&\
 		git push -f $(REPO) master:gh-pages)
+
+docs-theme-unzip:
+	(cd ./docs; rm -rf noisy; unzip noisy.zip)
+
+docs-theme-zip:
+	(cd ./docs; zip -r noisy.zip noisy; rm -rf noisy)
 
 release-patch: build test
 	@$(call release,patch)
