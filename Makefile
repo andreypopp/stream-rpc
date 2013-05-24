@@ -17,6 +17,13 @@ install link:
 test:
 	@$(BIN)/mocha -b -R spec --compilers coffee:coffee-script ./spec.coffee
 
+docs::
+	@sphinx-npm \
+		-Dhtml_theme_path=./docs \
+		-Dhtml_theme=noisy \
+		-Dmaster_doc=index \
+		./docs ./docs/build
+
 release-patch: build test
 	@$(call release,patch)
 
