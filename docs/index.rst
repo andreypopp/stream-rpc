@@ -21,7 +21,7 @@ To get started, install ``stream-rpc`` package via ``npm``::
 
     % npm install stream-rpc
 
-After that you will be able to use ``stream-rpc`` library in you code.  The
+After that you will be able to use ``stream-rpc`` library in your code.  The
 basic usage example is as follows::
 
     var rpc = require('stream-rpc'),
